@@ -45,13 +45,14 @@ print(f"Accuracy = {accuracy:.2f}")
 misclassified = (y_pred != y_test)
 classified = (y_pred == y_test)
 
+data_0 = X_train[y_train == 0]
+data_1 = X_train[y_train == 1]
 
-# Ploting histograms
+# Plot histogram
 plt.figure(figsize=(10, 6))
-plt.hist(X, bins=30, edgecolor="r", alpha=0.7)
+plt.hist(data_0, bins=120, color='red', edgecolor='black', label='Label 0', alpha=0.7, density=True)
+plt.hist(data_1, bins=120, color='blue', edgecolor='black', label='Label 1', alpha=0.7, density=True)
 plt.title("Histogram of feature values")
-plt.xlabel("Feature Values")
-plt.ylabel("Number of samples")
 plt.show()
 
 
